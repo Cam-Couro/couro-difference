@@ -47,7 +47,7 @@ nav .links a:hover{color:var(--ink)}
 .filmBar .rec{font-family:"IBM Plex Mono",monospace;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--acc2);display:flex;gap:8px;align-items:center}
 .filmBar .rec::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--acc);box-shadow:0 0 10px var(--acc);animation:pulse 1.4s infinite}
 .filmBar .ctl{display:flex;gap:8px}
-.filmBar button{all:unset;cursor:pointer;font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink);border:1px solid var(--line2);border-radius:999px;padding:6px 12px}
+.filmBar button{all:unset;white-space:nowrap;cursor:pointer;font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--ink);border:1px solid var(--line2);border-radius:999px;padding:6px 12px}
 .filmBar button[aria-pressed=true]{background:var(--acc);color:#140a04;border-color:var(--acc)}
 .filmBar button:focus-visible{outline:2px solid var(--acc2)}
 .scrub{height:6px;background:var(--line);cursor:pointer}
@@ -56,7 +56,7 @@ nav .links a:hover{color:var(--ink)}
 .film figcaption b{display:block;font-stretch:112%;font-size:15px;margin-bottom:4px}
 .film figcaption span{color:var(--mute);font-size:14px}
 .film .arrow{color:var(--acc);font-size:26px}
-@media(max-width:700px){.film figcaption{grid-template-columns:1fr}.film .arrow{display:none}.filmBar .rec{font-size:10px}}
+@media(max-width:700px){.film figcaption{grid-template-columns:1fr}.film .arrow{display:none}.filmBar{flex-wrap:wrap}.filmBar .rec{font-size:10px;flex:1 1 100%}.filmBar button{white-space:nowrap}}
 .hero .wrap{position:relative;z-index:2;width:100%}
 .hero h1{font-size:clamp(38px,5.2vw,74px);font-weight:750;max-width:1000px}
 .hero h1 .o{color:var(--acc)}
