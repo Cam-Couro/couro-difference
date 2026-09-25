@@ -583,7 +583,7 @@ document.getElementById('srcs').innerHTML=SRC.map(s=>`<li><a href="${s[1]}" targ
   const trail=[];let t=0;
   function draw(){ctx.clearRect(0,0,w,h);const g=ctx.createRadialGradient(w*.78,h*.55,0,w*.78,h*.55,h*.7);g.addColorStop(0,'#f47c4518');g.addColorStop(1,'transparent');ctx.fillStyle=g;ctx.fillRect(0,0,w,h);
     t+=0.022;const P=fullPose(t);const bones=[[0,1],[1,2],[2,3],[3,4],[1,5],[5,6],[6,7],[1,8],[8,9],[9,10],[10,14],[8,11],[11,12],[12,13]];
-    const mob=innerWidth<820;const sc=h*(mob?.2:.27),ox=w*(mob?.8:.86),oy=h*(mob?.95:.9);ctx.globalAlpha=mob?.35:1;const X=p=>[ox+p[0]*sc,oy+p[1]*sc];
+    const mob=innerWidth<820;const vh=Math.min(h,innerHeight*devicePixelRatio);const sc=vh*(mob?.22:.3),ox=w*(mob?.78:.8),oy=vh*(mob?.97:.86);ctx.globalAlpha=mob?.35:1;const X=p=>[ox+p[0]*sc,oy+p[1]*sc];
     trail.push(P.map(X));if(trail.length>14)trail.shift();
     trail.forEach((tp,ti)=>{ctx.strokeStyle=`rgba(244,124,69,${ti/trail.length*.08})`;ctx.lineWidth=1*devicePixelRatio;bones.forEach(([a,b])=>{ctx.beginPath();ctx.moveTo(...tp[a]);ctx.lineTo(...tp[b]);ctx.stroke()})});
     const Q=P.map(X);ctx.lineCap='round';ctx.strokeStyle='rgba(243,239,230,.85)';ctx.lineWidth=2.4*devicePixelRatio;bones.forEach(([a,b])=>{ctx.beginPath();ctx.moveTo(...Q[a]);ctx.lineTo(...Q[b]);ctx.stroke()});
