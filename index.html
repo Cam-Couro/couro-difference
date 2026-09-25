@@ -610,7 +610,7 @@ document.getElementById('srcs').innerHTML=SRC.map(s=>`<li><a href="${s[1]}" targ
       ctx.strokeStyle=on?'rgba(244,124,69,.35)':'rgba(255,255,255,.035)';ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(n.p.x,n.p.y);ctx.stroke();
       ctx.fillStyle=on?'#ffb08a':'rgba(243,239,230,.35)';ctx.beginPath();ctx.arc(x,y,(on?1.8:1.2)*devicePixelRatio,0,7);ctx.fill()});
     hubs.forEach(hb=>{const on=hb===active;ctx.fillStyle=on?'#f47c45':'#8f8a7c';ctx.beginPath();ctx.arc(hb.x,hb.y,(on?6:3.5)*devicePixelRatio,0,7);ctx.fill();
-      if(on){ctx.font=`${12*devicePixelRatio}px IBM Plex Mono`;ctx.fillStyle='#f3efe6';ctx.fillText(hb.l.toUpperCase(),hb.x+10*devicePixelRatio,hb.y-10*devicePixelRatio);ctx.fillStyle='#6d695e';ctx.fillText('→ cited in report',hb.x+10*devicePixelRatio,hb.y+8*devicePixelRatio)}});
+      if(on){ctx.font=`${12*devicePixelRatio}px IBM Plex Mono`;const tw=Math.max(ctx.measureText(hb.l.toUpperCase()).width,ctx.measureText('→ cited in report').width);ctx.fillStyle='rgba(18,18,16,.92)';ctx.fillRect(hb.x+4*devicePixelRatio,hb.y-26*devicePixelRatio,tw+14*devicePixelRatio,40*devicePixelRatio);ctx.fillStyle='#f3efe6';ctx.fillText(hb.l.toUpperCase(),hb.x+10*devicePixelRatio,hb.y-10*devicePixelRatio);ctx.fillStyle='#6d695e';ctx.fillText('→ cited in report',hb.x+10*devicePixelRatio,hb.y+8*devicePixelRatio)}});
     ctx.font=`${10.5*devicePixelRatio}px IBM Plex Mono`;ctx.fillStyle='#6d695e';ctx.fillText('ILLUSTRATIVE VIEW OF THE EVIDENCE CORPUS · HOVER',14*devicePixelRatio,h-14*devicePixelRatio);
     requestAnimationFrame(draw)}requestAnimationFrame(draw)})();
 
